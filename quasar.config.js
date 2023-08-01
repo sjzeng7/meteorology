@@ -30,10 +30,10 @@ module.exports = configure(function (/* ctx */) {
     boot: [],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
-    // css: ["app.scss"],
-    css: {
-      preProcessor: false,
-    },
+    css: ["app.scss"],
+    // css: {
+    //   preProcessor: false,
+    // },
     // 將QUASAR的SCSS關掉，採用bootstart的規則
     // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [

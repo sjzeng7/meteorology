@@ -15,3 +15,7 @@
 // @import "../node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 // Then add additional custom code here
+
+@import "./components/header";
+
+@import "./components/utilities";

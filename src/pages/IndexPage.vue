@@ -39,7 +39,7 @@ export default {
     },
   },
   async mounted() {
-    await this.getWeatherData();
+    // await this.getWeatherData();
   },
 };
 </script>

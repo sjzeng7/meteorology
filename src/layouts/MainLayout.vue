@@ -71,21 +71,33 @@
         </div>
       </div>
     </section>
-    <div class="mt-7" style="background-color: black; height: 800px">
+    <div class="mt-6" style="background-color: black; height: 900px">
       <!-- 放置容器元素 -->
       <!-- 放QUASAR選擇器 -->
-      <div>
-        <q-select
-          class="q-py-xl q-px-lg"
-          dark
-          rounded
-          outlined
-          v-model="model"
-          :options="options"
-          label="選擇縣市"
-          clearable
-          style="width: 268px; height: 56px"
-        />
+      <div class="q-px-xl q-pt-md">
+        <select
+          @change="selectData"
+          style="
+            height: 50px;
+            width: 200px;
+            font-size: 24px;
+            background-color: black;
+            color: white;
+          "
+          id="countys"
+          v-model="selectedCounty"
+        >
+          <option
+            v-for="(county, index) in countys"
+            :key="index"
+            :value="county"
+          >
+            {{ county }}
+          </option>
+        </select>
+        <q-btn class="q-px-xs q-pb-md" color="primary" ripple outline flat>
+          <q-icon name="close" @click="clearSelection" />
+        </q-btn>
       </div>
       <div id="chart"></div>
     </div>
@@ -203,9 +215,15 @@ export default defineComponent({
   data() {
     const leftDrawerOpen = ref(false);
     return {
+      maxTemp: [],
+      minTemp: [],
+      pop: [],
+      weatherForecast36Hr: [],
+      selectedCounty: "請選擇縣市",
       chart: null,
       model: ref(null),
-      options: [
+      countys: [
+        "請選擇縣市",
         "嘉義縣",
         "新北市",
         "嘉義市",
@@ -236,34 +254,82 @@ export default defineComponent({
     };
   },
   methods: {
+    async selectData() {
+      const selectedCounty = this.selectedCounty;
+      try {
+        // 未來的全國36小時氣象
+        const response = await axios.post("/api/weatherForecast36Hr", {
+          selectedCounty,
+        });
+        // 請求成功後，將資料存入組件的 data 中
+        const weatherForecast36Hr = response.data;
+        console.log("======weatherForecast36Hr");
+        console.log(weatherForecast36Hr);
+        this.weatherForecast36Hr = weatherForecast36Hr;
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+      this.chartStart();
+    },
+    clearSelection() {
+      this.selectedCounty = "請選擇縣市"; // 清空選中
+      this.maxTemp = [0];
+      this.minTemp = [0];
+      this.pop = [0];
+      console.log("===============1======this.maxTemp, this.minTemp, this.pop");
+      console.log(this.maxTemp, this.minTemp, this.pop);
+      this.chartStart();
+    },
     async chartStart() {
+      if (this.selectedCounty !== "請選擇縣市") {
+        const weatherForecast36Hr = this.weatherForecast36Hr;
+        this.maxTemp = weatherForecast36Hr.maxTemp;
+        this.minTemp = weatherForecast36Hr.minTemp;
+        this.pop = weatherForecast36Hr.pop;
+      }
+      console.log("===============2======this.maxTemp, this.minTemp, this.pop");
+      console.log(this.maxTemp, this.minTemp, this.pop);
       // 初始化 C3.js 圖表
       this.chart = c3.generate({
-        bindto: "#chart",
         data: {
+          // Wx:天氣狀態
+          // PoP:降雨機率
+          // MinT:最低溫度
+          // CI:舒適度
+          // MaxT:最高溫度
           columns: [
-            ["data1", 30, 200, 100, 400, 150, 250],
-            ["data2", 50, 20, 10, 40, 15, 25],
+            ["最高溫度"].concat(this.maxTemp),
+            ["最低溫度"].concat(this.minTemp),
+            ["降雨機率"].concat(this.pop),
           ],
+          type: "bar",
         },
       });
     },
     async getWeatherData() {
-      const apiUrl =
-        "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-7BF18B7E-F0E5-45E9-828D-0FB84504F83B&format=JSON&locationName=&sort=time"; // 替換成您的 API URL
       try {
-        const response = await axios.get(apiUrl, {
-          params: {
-            city: "Taipei", // 根據 API 文件中的參數添加所需的城市名稱
-          },
-        });
+        // 未來的全國36小時氣象
+        const response = await axios.get("/api/weatherForecast36Hr");
 
-        this.weatherData = response.data; // 將 API 回應資料存儲在 Vue 組件的 data 中
-        console.log("===111======this.weatherData");
-        console.log(this.weatherData);
+        // 請求成功後，將資料存入組件的 data 中
+        const data = response.data;
+        console.log("======data");
+        console.log(data);
       } catch (error) {
-        console.error("API 請求失敗:", error.message);
+        console.error("Error fetching data:", error);
       }
+
+      // try {
+      //   // 嘉義縣
+      //   const response = await axios.get("/api/chiayi");
+
+      //   // 請求成功後，將資料存入組件的 data 中
+      //   const data = response.data;
+      //   console.log("======data");
+      //   console.log(data);
+      // } catch (error) {
+      //   console.error("Error fetching data:", error);
+      // }
     },
   },
   async mounted() {

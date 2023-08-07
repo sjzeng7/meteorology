@@ -82,8 +82,13 @@ module.exports = configure(function (/* ctx */) {
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#devServer
     devServer: {
-      // https: true
-      open: true, // opens browser window automatically
+      proxy: {
+        "/api": {
+          target: "http://localhost:3000", // 修改為您的 Node.js 伺服器地址
+          changeOrigin: true,
+          pathRewrite: { "^/api": "" },
+        },
+      },
     },
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#framework

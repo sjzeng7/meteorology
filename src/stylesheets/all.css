@@ -12784,6 +12784,7 @@ textarea.form-control-lg {
 }
 .header {
   height: 958px;
+  width: 100%;
   background-position: center center;
   background-size: cover;
   position: relative; /* 設置 .header 的定位為相對定位 */

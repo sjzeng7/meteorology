@@ -13,8 +13,8 @@
             @click="toggleLeftDrawer"
           />
           <q-toolbar-title> 曾信傑的sideProject </q-toolbar-title>
-          <q-btn flat label="關於" />
-          <q-btn flat label="登入" />
+          <q-btn flat label="個人經歷" />
+          <q-btn flat label="管理者登入" />
         </div>
       </q-toolbar>
     </q-header>

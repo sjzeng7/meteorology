@@ -1,4 +1,3 @@
-// chiayi.js
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
@@ -11,11 +10,11 @@ module.exports = router.post("/", async (req, res) => {
     const response = await axios.get(
       "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-7BF18B7E-F0E5-45E9-828D-0FB84504F83B&format=JSON&locationName=&sort=time"
     ); // 替換為外部 API 的 URL
-    const weatherData = response.data; // 取得回傳的資料
-    const location = response.data.records.location;
+    const location = response.data.records.location; // 取得回傳的資料
     const maxTemp = [];
     const minTemp = [];
     const pop = [];
+    const timeArray = [];
     for (let i = 0, length = location.length; i < length; i = i + 1) {
       const locationName = location[i].locationName;
       if (selectedCounty === locationName) {
@@ -33,19 +32,22 @@ module.exports = router.post("/", async (req, res) => {
         const popArray = location[i].weatherElement[1].time;
         for (let j = 0, length = popArray.length; j < length; j = j + 1) {
           pop.push(+popArray[j].parameter.parameterName);
-          console.log("===pop");
-          console.log(pop);
+        }
+        const time = location[i].weatherElement[1].time;
+        for (let j = 0, length = time.length; j < length; j = j + 1) {
+          timeArray.push(time[j].startTime);
         }
       }
     }
     // 回傳成功的回應
+    console.log("=======timeArray");
+    console.log(timeArray);
     const weatherForecast36Hr = {
       maxTemp: maxTemp,
       minTemp: minTemp,
       pop: pop,
+      timeArray: timeArray,
     };
-    console.log("======weatherForecast36Hr");
-    console.log(weatherForecast36Hr);
     res.json(weatherForecast36Hr);
   } catch (error) {
     // 處理錯誤，回傳錯誤的回應

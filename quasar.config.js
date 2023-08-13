@@ -30,7 +30,10 @@ module.exports = configure(function (/* ctx */) {
     boot: [],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
-    css: ["app.scss"],
+    // css: ["app.scss"],
+    css: [
+      "app.css", // referring to /src/css/app.sass
+    ],
     // css: {
     //   preProcessor: false,
     // },

@@ -17,29 +17,27 @@
       <q-space size="64px"></q-space>
       <!-- 64px 間隔 -->
       <div class="container box">
-        <div class="">
-          <span>
+        <div class="row">
+          <div class="col-12 col-md-8 container-image">
             <img
-              class="height-s5 w-100 object-fit-cover"
+              class="image-taiwam"
               src="https://images.unsplash.com/photo-1552993873-0dd1110e025f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80"
               alt=""
             />
-          </span>
-          <span>
-            <div>
-              <h2>台灣是一個擁有豐富觀光資源的國家</h2>
-              <p>
-                台灣是一個擁有豐富觀光資源的國家。
-                從壯麗的自然景觀到獨特的文化體驗，台灣為遊客提供了多元的旅遊體驗。
-                島上蔚藍的海岸線、壯闊的山脈、綿延的茶園，都呈現出大自然的美麗景色。
-                此外，台灣的文化傳統也吸引著眾多遊客。
-                古老的廟宇、繁華的夜市、傳統工藝，都展示著台灣深厚的歷史和獨特的文化面貌。
-              </p>
-            </div>
-          </span>
+          </div>
+          <div class="col-12 col-md-4 text-center">
+            <h4>台灣是一個擁有豐富觀光資源的國家</h4>
+            <p>
+              台灣是一個擁有豐富觀光資源的國家。
+              從壯麗的自然景觀到獨特的文化體驗，台灣為遊客提供了多元的旅遊體驗。
+              島上蔚藍的海岸線、壯闊的山脈、綿延的茶園，都呈現出大自然的美麗景色。
+              此外，台灣的文化傳統也吸引著眾多遊客。
+              古老的廟宇、繁華的夜市、傳統工藝，都展示著台灣深厚的歷史和獨特的文化面貌。
+            </p>
+          </div>
         </div>
-        <div class="row justify-content-center mt-4">
-          <div class="col-md-5 d-flex align-items-center">
+        <div class="row">
+          <div class="col-12 col-md-4 text-center">
             <div>
               <h2>同時也是天氣多變的寶島</h2>
               <p>
@@ -51,9 +49,9 @@
               </p>
             </div>
           </div>
-          <div class="">
+          <div class="col-12 col-md-8 container-image">
             <img
-              class="height-s5 w-100 object-fit-cover"
+              class="image-taiwam"
               src="https://images.unsplash.com/photo-1503505081023-9ab9cf55fec7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
               alt=""
             />
@@ -176,8 +174,20 @@
   </q-page>
 </template>
 <style>
+.container-image {
+  display: flex;
+  justify-content: center; /* 水平置中 */
+  align-items: center; /* 垂直置中 */
+  padding: 20px 0px 20px 0px; /* 上下左產生間隔，右不需要間隔 */
+  background-color: #f0f0f0;
+}
 .box {
   margin-bottom: 64px; /* 底部產生 64px 間隔 */
+}
+.image-taiwam {
+  display: flex;
+  width: 560px;
+  height: 360px;
 }
 .page-content {
   display: flex;

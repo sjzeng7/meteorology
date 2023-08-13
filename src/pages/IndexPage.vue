@@ -1,26 +1,31 @@
 <template>
-  <q-page class="flex flex-center">
-    <link rel="stylesheet" href="../../src/stylesheets/all.scss" />
-    <div>
+  <q-page>
+    <!-- <link rel="stylesheet" href="../../src/stylesheets/all.scss" /> -->
+    <div class="page-content">
       <div class="container">
-        <img
-          class="header"
-          src="https://images.unsplash.com/photo-1609147110688-83b5fd1288e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-          alt=""
-        />
-        <!-- <h1 class="header-text">即時氣象訊息都在這</h1> -->
-        <div class="header-text">即時氣象訊息都在這</div>
+        <div class="image-container box">
+          <img
+            class="center-image"
+            src="https://images.unsplash.com/photo-1609147110688-83b5fd1288e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+            alt=""
+          />
+          <div class="box">
+            <p class="header-overlay">即時氣象訊息都在這</p>
+          </div>
+        </div>
       </div>
-      <div class="container mt-6">
-        <div class="row justify-content-center">
-          <div class="col-md-5">
+      <q-space size="64px"></q-space>
+      <!-- 64px 間隔 -->
+      <div class="container box">
+        <div class="">
+          <span>
             <img
               class="height-s5 w-100 object-fit-cover"
               src="https://images.unsplash.com/photo-1552993873-0dd1110e025f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80"
               alt=""
             />
-          </div>
-          <div class="col-md-5 d-flex align-items-center">
+          </span>
+          <span>
             <div>
               <h2>台灣是一個擁有豐富觀光資源的國家</h2>
               <p>
@@ -31,7 +36,7 @@
                 古老的廟宇、繁華的夜市、傳統工藝，都展示著台灣深厚的歷史和獨特的文化面貌。
               </p>
             </div>
-          </div>
+          </span>
         </div>
         <div class="row justify-content-center mt-4">
           <div class="col-md-5 d-flex align-items-center">
@@ -46,7 +51,7 @@
               </p>
             </div>
           </div>
-          <div class="col-md-5">
+          <div class="">
             <img
               class="height-s5 w-100 object-fit-cover"
               src="https://images.unsplash.com/photo-1503505081023-9ab9cf55fec7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
@@ -55,10 +60,7 @@
           </div>
         </div>
       </div>
-      <div
-        class="mt-6"
-        style="background-color: black; height: auto; width: auto"
-      >
+      <div style="background-color: black; height: auto; width: auto">
         <!-- 放置容器元素 -->
         <!-- 放QUASAR選擇器 -->
         <div class="q-px-xl q-pt-md">
@@ -174,11 +176,45 @@
   </q-page>
 </template>
 <style>
+.box {
+  margin-bottom: 64px; /* 底部產生 64px 間隔 */
+}
+.page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}
+.center-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+}
 .c3-region-0 {
   fill: red;
 }
 .c3-region.foo {
   fill: green;
+}
+.header-overlay {
+  position: absolute;
+  top: 20%; /* Adjust the vertical position of the text */
+  left: 50%; /* Adjust the horizontal position of the text */
+  font-size: 4vw; /* 使用相對單位，隨父容器變化 */
+  color: #f0f0f0;
+  padding: 8px;
+}
+.image-container {
+  position: relative;
+  width: 100%; /* Make sure the container takes full width */
 }
 #chart {
   background-color: #373739; /* 設置圖表的背景顏色為黑色 */
@@ -194,21 +230,6 @@
 .left-component {
   display: flex;
   justify-content: flex-start;
-}
-.header-text {
-  position: absolute;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  position: absolute;
-  top: 20%;
-  left: 70%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 46px;
-  font-weight: bold;
-  /* 添加其他樣式，例如文字顏色、字體大小等 */
 }
 </style>
 <script>

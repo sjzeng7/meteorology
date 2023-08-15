@@ -296,8 +296,6 @@ export default {
   },
   watch: {
     selecteDataModels(newVal, oldVal) {
-      console.log("==newVal, oldVal");
-      console.log(newVal, oldVal);
       if (newVal !== oldVal) {
         this.selectedCounty = "請選擇縣市"; // 清空選中
       }
@@ -882,8 +880,6 @@ export default {
         this.maxTemp = weatherForecast36Hr.maxTemp;
         this.minTemp = weatherForecast36Hr.minTemp;
         this.pop = weatherForecast36Hr.pop;
-        console.log("=====weatherForecast36Hr.timeArray");
-        console.log(weatherForecast36Hr.timeArray);
         this.timeArray = weatherForecast36Hr.timeArray;
       }
       // 初始化 C3.js 圖表

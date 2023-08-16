@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <q-header class="custom-header" elevated>
       <!-- Load d3.js and c3.js -->
-      <q-toolbar style="background-color: black; width: auto">
+      <q-toolbar style="width: auto">
         <div class="left-component">
           <q-btn
             flat
@@ -25,6 +25,16 @@
   </q-layout>
 </template>
 
+<style>
+.custom-header {
+  background-color: #171719;
+  /* 可以添加其他的 CSS 屬性來定義樣式 */
+}
+.left-component {
+  display: flex;
+  justify-content: flex-start;
+}
+</style>
 <script>
 import IndexPage from "../pages/IndexPage.vue";
 import { defineComponent, ref } from "vue";

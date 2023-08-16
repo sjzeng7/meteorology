@@ -18,38 +18,38 @@
       <!-- 64px 間隔 -->
       <div class="container box">
         <div class="row">
-          <div class="col-12 col-md-8 container-image">
+          <div class="col-12 col-md-6 container-image">
             <img
               class="image-taiwam"
               src="https://images.unsplash.com/photo-1552993873-0dd1110e025f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80"
               alt=""
             />
           </div>
-          <div class="col-12 col-md-4 text-center">
+          <div class="col-12 col-md-6 text-center q-pl-xl">
             <h4>台灣是一個擁有豐富觀光資源的國家</h4>
-            <p>
-              台灣是一個擁有豐富觀光資源的國家。
-              從壯麗的自然景觀到獨特的文化體驗，台灣為遊客提供了多元的旅遊體驗。
-              島上蔚藍的海岸線、壯闊的山脈、綿延的茶園，都呈現出大自然的美麗景色。
-              此外，台灣的文化傳統也吸引著眾多遊客。
-              古老的廟宇、繁華的夜市、傳統工藝，都展示著台灣深厚的歷史和獨特的文化面貌。
+            <p style="text-align: justify">
+              台灣是一個擁有豐富觀光資源的國家。<br />
+              從壯麗的自然景觀到獨特的文化體驗，台灣為遊客提供了多元的旅遊體驗。<br />
+              島上蔚藍的海岸線、壯闊的山脈、綿延的茶園，都呈現出大自然的美麗景色。<br />
+              此外，台灣的文化傳統也吸引著眾多遊客。<br />
+              古老的廟宇、繁華的夜市、傳統工藝，都展示著台灣深厚的歷史和獨特的文化面貌。<br />
             </p>
           </div>
         </div>
         <div class="row">
-          <div class="col-12 col-md-4 text-center">
+          <div class="col-12 col-md-6 text-center">
             <div>
-              <h2>同時也是天氣多變的寶島</h2>
-              <p>
-                台灣作為一個多變的寶島，天氣變化豐富多彩，呈現多樣性的氣候特點。
-                由於地理位置的影響，台灣地區涵蓋了亞熱帶、溫帶和高山氣候等多種氣候型態。
-                北部地區四季分明，冬暖夏涼，適宜的氣候條件使得台灣北部成為綠意盎然的農業區域，擁有豐富的果樹和蔬菜產業。
-                中部地區則以溫暖濕潤的氣候為主，同時兼具著各種特殊的生態景觀，如日月潭、阿里山等。
-                而南部地區則以炎熱濕潤的熱帶氣候為主，盛產水果和農產品。
+              <h4>同時也是天氣多變的寶島</h4>
+              <p style="text-align: justify">
+                台灣作為一個多變的寶島，天氣變化豐富多彩，呈現多樣性的氣候特點。<br />
+                由於地理位置的影響，台灣地區涵蓋了亞熱帶、溫帶和高山氣候等多種氣候型態。<br />
+                北部地區四季分明，冬暖夏涼，適宜的氣候條件使得台灣北部成為綠意盎然的農業區域，擁有豐富的果樹和蔬菜產業。<br />
+                中部地區則以溫暖濕潤的氣候為主，同時兼具著各種特殊的生態景觀，如日月潭、阿里山等。<br />
+                而南部地區則以炎熱濕潤的熱帶氣候為主，盛產水果和農產品。<br />
               </p>
             </div>
           </div>
-          <div class="col-12 col-md-8 container-image">
+          <div class="col-12 col-md-6 container-image">
             <img
               class="image-taiwam"
               src="https://images.unsplash.com/photo-1503505081023-9ab9cf55fec7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
@@ -58,7 +58,7 @@
           </div>
         </div>
       </div>
-      <div style="background-color: black; height: auto; width: auto">
+      <div style="height: auto; width: auto">
         <!-- 放置容器元素 -->
         <!-- 放QUASAR選擇器 -->
         <div class="q-px-xl q-pt-md">
@@ -69,8 +69,7 @@
                   height: 50px;
                   width: 200px;
                   font-size: 24px;
-                  background-color: black;
-                  color: white;
+                  color: rgb(15, 15, 15);
                 "
                 id="dataModels"
                 v-model="selecteDataModels"
@@ -91,8 +90,8 @@
                   height: 50px;
                   width: 200px;
                   font-size: 24px;
-                  background-color: black;
-                  color: white;
+                  background-color: white;
+                  color: black;
                 "
                 id="countys"
                 v-model="selectedCounty"
@@ -118,8 +117,8 @@
                   height: 50px;
                   width: 200px;
                   font-size: 24px;
-                  background-color: black;
-                  color: white;
+                  background-color: white;
+                  color: black;
                 "
                 id="townships"
                 v-model="selecteTownships"
@@ -174,6 +173,9 @@
   </q-page>
 </template>
 <style>
+.c3-line {
+  fill: rgba(0, 0, 0, 0);
+}
 .container-image {
   display: flex;
   justify-content: center; /* 水平置中 */
@@ -186,7 +188,7 @@
 }
 .image-taiwam {
   display: flex;
-  width: 560px;
+  width: auto;
   height: 360px;
 }
 .page-content {
@@ -208,12 +210,6 @@
   justify-content: center;
   background-color: #f0f0f0;
 }
-.c3-region-0 {
-  fill: red;
-}
-.c3-region.foo {
-  fill: green;
-}
 .header-overlay {
   position: absolute;
   top: 20%; /* Adjust the vertical position of the text */
@@ -226,21 +222,6 @@
   position: relative;
   width: 100%; /* Make sure the container takes full width */
 }
-#chart {
-  background-color: #373739; /* 設置圖表的背景顏色為黑色 */
-  color: white;
-  fill: #6b6b68;
-  height: 600px;
-  width: 100%;
-}
-.custom-header {
-  background-color: #171719; /* 設置自定義的背景顏色，這裡使用紅色作為範例 */
-  /* 可以添加其他的 CSS 屬性來定義樣式 */
-}
-.left-component {
-  display: flex;
-  justify-content: flex-start;
-}
 </style>
 <script>
 import EssentialLink from "components/EssentialLink.vue";
@@ -249,6 +230,7 @@ import * as d3 from "d3";
 import c3 from "c3";
 import { defineComponent } from "vue";
 import { ref } from "vue";
+import { Loading } from "quasar";
 
 export default {
   data() {
@@ -828,7 +810,7 @@ export default {
         } catch (error) {
           console.error("Error fetching data:", error);
         }
-        this.chartStart();
+        this.chartWeatherForecast36HrStart();
       }
       if (this.selecteDataModels === "鄉鎮氣象預報") {
         this.type = "line";
@@ -844,15 +826,15 @@ export default {
           });
           // 請求成功後，將資料存入組件的 data 中
           const ruralWeather = response.data;
-          this.minTemp = ruralWeather.Mint;
-          this.timeArray = ruralWeather.time;
-          this.maxTemp = [0];
-          this.pop = [0];
+          console.log("=======ruralWeather");
+          console.log(ruralWeather);
           this.ruralWeather = ruralWeather;
         } catch (error) {
           console.error("Error fetching data:", error);
         }
-        this.chartStart();
+        this.chartCountyWeatherStart();
+
+        Loading.show();
       }
     },
     clearSelection() {
@@ -862,7 +844,7 @@ export default {
       this.minTemp = [0];
       this.pop = [0];
       this.toDay();
-      this.chartStart();
+      this.chartWeatherForecast36HrStart();
     },
     toDay() {
       const toDay = new Date();
@@ -874,7 +856,109 @@ export default {
       const s = toDay.getSeconds();
       this.timeArray = [`${yy}-${mm}-${dd} ${h}:${m}:${s}`];
     },
-    async chartStart() {
+    async chartCountyWeatherStart() {
+      const ruralWeather = this.ruralWeather;
+      const PoP12h = ruralWeather.PoP12h;
+      const T = ruralWeather.T;
+      const RH = ruralWeather.RH;
+      const MinCI = ruralWeather.MinCI;
+      const WS = ruralWeather.WS;
+      const MaxAT = ruralWeather.MaxAT;
+      const Wx = ruralWeather.Wx;
+      const MaxCI = ruralWeather.MaxCI;
+      const MinT = ruralWeather.MinT;
+      const UVI = ruralWeather.UVI;
+      const MinAT = ruralWeather.MinAT;
+      const MaxT = ruralWeather.MaxT;
+      const WD = ruralWeather.WD;
+      const Td = ruralWeather.Td;
+      console.log(
+        "=======PoP12h, T, RH, MinCI, WS, MaxAT, Wx, MaxCI, MinT, UVI, MinAT, MaxT, WD ,Td"
+      );
+      console.log(
+        PoP12h,
+        T,
+        RH,
+        MinCI,
+        WS,
+        MaxAT,
+        Wx,
+        MaxCI,
+        MinT,
+        UVI,
+        MinAT,
+        MaxT,
+        WD,
+        Td
+      );
+      // 初始化 C3.js 圖表
+      this.chart = null;
+      this.chart = c3.generate({
+        data: {
+          // PoP12h=12小時降雨機率
+          // T=平均溫度
+          // RH=平均相對濕度
+          // MinCI=最小舒適度指數
+          // WS=最大風速
+          // MaxAT=最高體感溫度
+          // Wx=天氣現象
+          // MaxCI=最大舒適度指數
+          // MinT=最低溫度 OK
+          // UVI=紫外線指數
+          // MinAT=最低體感溫度
+          // MaxT=最高溫度
+          // WD=風向
+          // Td=平均露點溫度
+          x: "x",
+          xFormat: "%Y-%m-%d %H:%M:%S", // 指定 X 軸上時間格式
+          columns: [
+            ["x"].concat(PoP12h.time),
+            ["12小時降雨機率"].concat(PoP12h.Mint),
+            ["平均溫度"].concat(T.Mint),
+            ["平均相對濕度"].concat(RH.Mint),
+            ["最小舒適度指數"].concat(MinCI.Mint),
+            ["最大風速"].concat(WS.Mint),
+            ["最高體感溫度"].concat(MaxAT.Mint),
+            ["天氣現象"].concat(Wx.Mint),
+            ["最大舒適度指數"].concat(MaxCI.Mint),
+            ["最低溫度"].concat(MinT.Mint),
+            ["紫外線指數"].concat(UVI.Mint),
+            ["最低體感溫度"].concat(MinAT.Mint),
+            ["最高溫度"].concat(MaxT.Mint),
+            ["風向"].concat(WD.Mint),
+            ["平均露點溫度"].concat(Td.Mint),
+          ],
+          point: {
+            show: true,
+            r: 4, // 节点的半径
+            focus: {
+              expand: {
+                r: 6, // 获得焦点时节点的半径
+              },
+            },
+          },
+          type: this.type,
+        },
+        point: {
+          r: 3,
+        },
+        zoom: {
+          enabled: true,
+        },
+        legend: {
+          position: "right",
+        },
+        axis: {
+          x: {
+            type: "timeseries", // 設定 X 軸為時間序列
+            tick: {
+              format: "%m-%d %H:%M", // 設定 X 軸刻度顯示的時間格式
+            },
+          },
+        },
+      });
+    },
+    async chartWeatherForecast36HrStart() {
       if (this.selecteDataModels === "36小時氣象資料") {
         const weatherForecast36Hr = this.weatherForecast36Hr;
         this.maxTemp = weatherForecast36Hr.maxTemp;
@@ -900,39 +984,23 @@ export default {
           ],
           type: this.type,
         },
+        legend: {
+          position: "right",
+        },
         axis: {
           x: {
             type: "timeseries", // 設定 X 軸為時間序列
             tick: {
-              format: "%Y-%m-%d %H:%M:%S", // 設定 X 軸刻度顯示的時間格式
+              format: "%%m-%d %H:%M", // 設定 X 軸刻度顯示的時間格式
             },
           },
         },
-        zoom: {
-          enabled: true,
-        },
-        regions: [
-          { start: 0, end: 1 },
-          { start: 2, end: 4, class: "foo" },
-        ],
-        size: {
-          width: window.innerWidth * 1, // 設定寬度為視窗寬度的 90%
-        },
-        line: {
-          width: 300, // 設置折線圖線條的粗細
-        },
-      });
-      // 窗口大小變化時重新調整圖表寬度
-      window.addEventListener("resize", function () {
-        this.chart.resize({
-          width: window.innerWidth * 1,
-        });
       });
     },
   },
   async mounted() {
     await this.toDay();
-    await this.chartStart();
+    await this.chartWeatherForecast36HrStart();
   },
   beforeUnmount() {
     // 在組件銷毀前，銷毀 C3.js 圖表
